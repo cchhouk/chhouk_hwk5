@@ -1,59 +1,26 @@
-// Ex1
-
-function calculator() {
-  let userNumber1 = Number(prompt("Please enter Number 1: "));
-  let userNumber2 = Number(prompt("Please enter Number 2: "));
-  let mathOp = prompt("Please enter a Mathematical Operation (+,-,*,/): ");
-  let calculation = Number();
-
-  if (isNaN(userNumber1) || isNaN(userNumber2)) { // Num validator 
-    console.log(`You did not enter a valid number(s).`);
-  } else if (mathOp === "+") {
-    let calculation = userNumber1 + userNumber2;
-    console.log(`${userNumber1} + ${userNumber2} = ${calculation}`)
-  } else if (mathOp === "-") {
-    let calculation = userNumber1 - userNumber2;
-    console.log(`${userNumber1} - ${userNumber2} = ${calculation}`);
-  } else if (mathOp === "*") {
-    let calculation = userNumber1 * userNumber2;
-    console.log(`${userNumber1} * ${userNumber2} = ${calculation}`);
-  } else if (mathOp === "/") {
-    let calculation = userNumber1 / userNumber2;
-    console.log(`${userNumber1} / ${userNumber2} = ${calculation}`);
-  } else {
-    console.log(`You did not enter a valid operation.`);
+// Ex 1
+class Square {
+  constructor(side) { 
+    this.side = Number(side);
+    this.perimter = side * 4; 
+    this.area = Math.pow(side,2); 
+    this.diagonal = Math.sqrt(2 * Math.pow(side,2)); 
+  }
+  describe() { // Describe function
+    return `Square with side ${this.side} has perimiter of ${this.perimter}, area of ${this.area}, and diagonal of ${this.diagonal}`;
   }
 }
 
-calculator(); // Call on function. 
+const square1 = new Square(2) // First square
+console.log(square1.describe());
 
-// Brainstorm
-/* 
- if mathematical operation is one of the inputs then use that operator to do the claculation of the number. set that number into a new variable.
+console.log("=====================") // Break
 
- then print, Number1 (mathOp) Number "=" OutPut
-*/
+const square2 = new Square(3) // Second square
+console.log(square2.describe());
 
-// Prototype 1
-/*
-let userNumber1 = Number(prompt("Please enter Number 1: "));
-let userNumber2 = Number(prompt("Please enter Number 2: "));
-let mathOp = prompt("Please enter a Mathematical Operation (+,-,*,/): ");
-let calculation = Number();
 
-if (mathOp === "+") {
-  let calculation = userNumber1 + userNumber2; 
-  console.log(`${userNumber1} + ${userNumber2} = ${calculation}`)
-} else if (mathOp === "-") {
-  let calculation = userNumber1 - userNumber2;
-  console.log(`${userNumber1} - ${userNumber2} = ${calculation}`);
-} else if (mathOp === "*") {
-  let calculation = userNumber1 * userNumber2;
-  console.log(`${userNumber1} * ${userNumber2} = ${calculation}`);
-} else if (mathOp === "/") {
-  let calculation = userNumber1 / userNumber2;
-  console.log(`${userNumber1} / ${userNumber2} = ${calculation}`);
-} else {
-  console.log(`You did not enter a valid operation.`);
-}
-*/
+console.log("=====================")
+
+const square3 = new Square(4) // Third square
+console.log(square3.describe());

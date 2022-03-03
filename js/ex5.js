@@ -1,43 +1,18 @@
-// Ex5 
+anArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-function wordProgram() {
-  let word = prompt("Please enter a word:");
-  let vowels = ["a", "e", "i", "o", "u"]; // Array for vowels
-  let count = 0;
-  let wordLC = word.toLowerCase() // Case insensitive. 
+//	What is the output of the following?
+console.log(anArray.filter(value => value % 2 === 0).map(x => x * 2));
+// Filter by even. Then times each value by 2. 
+// 0, 2, 4, 6, 8, 10
+// Output = [0, 4, 8, 12, 16, 20]
 
-  for (let letter of word.toLowerCase()) { // Convert input to all lower case
-    if (vowels.includes(letter)) { // Checks to see if vowels are in
-      count++;
-    }
-  }
+//	Let's reorder the filter and map methods.  What is the output of the following?
+console.log(anArray.map(x => x * 2).filter(value => value % 2 === 0));
+// Times array by 2
+// 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20
+// Filter by those diviblse by 2
+// Output = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 
-  let palindrome = "a palindrome."; 
-  const len = word.length;
-
-  for (let i = 0; i < len / 2; i++) {
-    if (wordLC[i] !== wordLC[len - 1 - i]) // Use wordLC to bypass case sensitivity. 
-      palindrome = "not a palindrome."; // Changes value of "palindrome" to "not a palindrome" if for loop is satisfied
-  }
-  output = word + " contains " + count + " vowel(s) and is " + palindrome;
-  console.log(output);
-  return output;
-}
-
-wordProgram();
-
-// Prototype 1
-/*
-const vowels = ["a", "e", "i", "o", "u", "y"];
-let word = prompt('Enter your word: ');
-
-function isVowel(vowels, word) {
-  let result = false;
-  for (let i = 0; i < word.length; i++) {
-    if (vowels.includes(word[i])) {
-      result = true;
-      break;
-    }
-  }
-}
-*/
+// Are outputs the same? Why?
+// The outputs are not the same. The first one filters all the even values first and then multiplies them by 2. 
+// The second value multiples all values by two, thereby making them even. 

@@ -1,16 +1,20 @@
-// Ex2
+// Ex 2
+// An array of numbers 1 - 10
+const progArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const r = Number(prompt("Enter the circle radius:"));
+// An array of odd numbers
+const oddNumbers = (progArray.filter(num => num % 2 !== 0))
+console.log("Array of odd numbers: " + oddNumbers);
 
-const circle = {
-  circumference() { // Description
-    return 2 * Math.PI * r; // Formula
-  },
-  area() {
-    return Math.PI * Math.pow(r, 2);
-  }
-};
+// An array of numbers divisible by 2 or 5
+const divBy2or5 = progArray.filter(num => num % 2 === 0 || num % 5 === 0);
+console.log("Array divisible by 2 or 5: " + divBy2or5);
 
-// 'It's a function that takes an object as a parameter.'
-console.log(`Its circumference is ${circle.circumference()}`);
-console.log(`Its area is ${circle.area()}`);
+// An array of numbers divisible by 3 squared (square the numbers that are divisible by 3)
+const divBy3sqrd = progArray.filter(num => num % 3 === 0).map(num => Math.pow(num,2));
+console.log("Array divisible by 3 squared: " + divBy3sqrd);
+
+// The sum of the following: square the numbers divisible by 5
+const divby5sum = progArray.filter(num => num % 5 === 0).map(num => Math.pow(num,2)).reduce((sum, x) => sum + x, 0);
+console.log("Sum of the numbers divisible by 5 squared: " + divby5sum); 
+// 25 + 100 = 125
